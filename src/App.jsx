@@ -8,11 +8,27 @@ function App() {
   const [projects, setProjects] = useState([]);
   const [todos, setTodos] = useState({});
 
+  function handleSubmitProject(event, name) {
+    event.preventDefault();
+    handleAddProject(name);
+  }
+
+  function handleAddProject(name) {
+    const newItem = {
+      id: self.crypto.randomUUID(),
+      name: name,
+    };
+    setProjects((prev) => [...prev, newItem]);
+  }
+
   return (
     <>
       <Header></Header>
       <main className="main__container">
-        <Projects projects={projects} />
+        <Projects
+          projects={projects}
+          handleSubmitProject={handleSubmitProject}
+        />
       </main>
     </>
   );
