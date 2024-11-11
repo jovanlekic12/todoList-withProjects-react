@@ -21,6 +21,14 @@ function App() {
     setProjects((prev) => [...prev, newItem]);
   }
 
+  function handleAddTodo(name) {
+    const newItem = {
+      id: self.crypto.randomUUID(),
+      name: name,
+    };
+    setTodos((prev) => [...prev, newItem]);
+  }
+
   return (
     <>
       <Header></Header>
