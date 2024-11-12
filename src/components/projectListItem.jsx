@@ -1,6 +1,10 @@
 function Project(props) {
-  const { name } = props;
-  return <li className="projects__list__item">{name}</li>;
+  const { name, id } = props;
+  return (
+    <li className="projects__list__item">
+      <h1>{name}</h1>
+    </li>
+  );
 }
 
 export default Project;

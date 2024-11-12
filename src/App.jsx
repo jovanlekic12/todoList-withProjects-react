@@ -7,10 +7,14 @@ import Projects from "./components/projects";
 function App() {
   const [projects, setProjects] = useState([]);
   const [todos, setTodos] = useState({});
+  const [projectName, setProjectName] = useState("");
+  const [isProjectFormOpened, setIsProjectFormOpened] = useState(false);
 
   function handleSubmitProject(event, name) {
     event.preventDefault();
     handleAddProject(name);
+    setIsProjectFormOpened(false);
+    console.log(projects);
   }
 
   function handleAddProject(name) {
@@ -36,6 +40,10 @@ function App() {
         <Projects
           projects={projects}
           handleSubmitProject={handleSubmitProject}
+          setProjectName={setProjectName}
+          projectName={projectName}
+          isProjectFormOpened={isProjectFormOpened}
+          setIsProjectFormOpened={setIsProjectFormOpened}
         />
       </main>
     </>

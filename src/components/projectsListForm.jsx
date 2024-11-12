@@ -2,17 +2,22 @@ import Button from "./button";
 import Input from "./input";
 
 function ProjectForm(props) {
-  const { handleSubmitProject } = props;
+  const { handleSubmitProject, setProjectName, projectName, setIsFormOpened } =
+    props;
 
   return (
-    <form onSubmit={handleSubmitProject}>
+    <form onSubmit={(event) => handleSubmitProject(event, projectName)}>
       <Input
         placeHolder="Add new project"
         className="project__input"
         type="text"
+        onChange={(event) => setProjectName(event.target.value)}
       />
       <div>
-        <Button className="project__form__btn" onClick={handleSubmitProject}>
+        <Button
+          className="project__form__btn"
+          onClick={(event) => handleSubmitProject(event, projectName)}
+        >
           Add
         </Button>
         <Button className="project__form__btn">Cancel</Button>

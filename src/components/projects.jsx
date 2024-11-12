@@ -3,27 +3,40 @@ import Project from "./projectListItem";
 import ProjectForm from "./projectsListForm";
 import { useState } from "react";
 function Projects(props) {
-  const { projects, handleSubmitProject } = props;
-  const [isFormOpened, setIsFormOpened] = useState(false);
+  const {
+    projects,
+    handleSubmitProject,
+    setProjectName,
+    projectName,
+    isProjectFormOpened,
+    setIsProjectFormOpened,
+  } = props;
+
+  console.log(projects);
 
   return (
     <aside className="projects__section">
       <Button
-        onClick={() => setIsFormOpened(true)}
+        onClick={() => setIsProjectFormOpened(true)}
         className="new__project__btn"
       >
         + New project
       </Button>
       <h1 className="projects__section__title">Projects:</h1>
-      {isFormOpened ? (
-        <ProjectForm handleSubmitProject={handleSubmitProject} />
+      {isProjectFormOpened ? (
+        <ProjectForm
+          handleSubmitProject={handleSubmitProject}
+          setProjectName={setProjectName}
+          projectName={projectName}
+        />
       ) : (
         ""
       )}
       <ul className="projects__list">
-        {projects.map((project) => {
-          <Project {...project} />;
-        })}
+        {projects &&
+          projects.map((project) => {
+            <Project name={project.name} key={project.id} />;
+          })}
       </ul>
     </aside>
   );
