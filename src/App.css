@@ -19,3 +19,27 @@ html {
 .header h1 {
   font-weight: 100;
 }
+
+.main__container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.projects__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d24a4a;
+  padding: 2rem 3rem;
+  height: 100%;
+}
+
+.new__project__btn {
+  font-size: 2.5rem;
+  border: 0;
+  background-color: transparent;
+}
+
+.projects__list {
+  list-style: none;
+}

@@ -12,10 +12,8 @@ function Projects(props) {
     setIsProjectFormOpened,
   } = props;
 
-  console.log(projects);
-
   return (
-    <aside className="projects__section">
+    <section className="projects__section">
       <Button
         onClick={() => setIsProjectFormOpened(true)}
         className="new__project__btn"
@@ -35,10 +33,10 @@ function Projects(props) {
       <ul className="projects__list">
         {projects &&
           projects.map((project) => {
-            <Project name={project.name} key={project.id} />;
+            return <Project name={project.name} key={project.id} />;
           })}
       </ul>
-    </aside>
+    </section>
   );
 }
 

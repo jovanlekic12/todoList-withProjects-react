@@ -12,6 +12,7 @@ function ProjectForm(props) {
         className="project__input"
         type="text"
         onChange={(event) => setProjectName(event.target.value)}
+        required
       />
       <div>
         <Button

@@ -3,10 +3,10 @@ import "./App.css";
 
 import Header from "./components/header";
 import Projects from "./components/projects";
+import Todos from "./components/todos";
 
 function App() {
   const [projects, setProjects] = useState([]);
-  const [todos, setTodos] = useState({});
   const [projectName, setProjectName] = useState("");
   const [isProjectFormOpened, setIsProjectFormOpened] = useState(false);
 
@@ -21,16 +21,10 @@ function App() {
     const newItem = {
       id: self.crypto.randomUUID(),
       name: name,
+      isSelected: false,
+      todos: [],
     };
     setProjects((prev) => [...prev, newItem]);
-  }
-
-  function handleAddTodo(name) {
-    const newItem = {
-      id: self.crypto.randomUUID(),
-      name: name,
-    };
-    setTodos((prev) => [...prev, newItem]);
   }
 
   return (
