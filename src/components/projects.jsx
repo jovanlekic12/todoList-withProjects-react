@@ -10,6 +10,7 @@ function Projects(props) {
     projectName,
     isProjectFormOpened,
     setIsProjectFormOpened,
+    handleSelectedProject,
   } = props;
 
   return (
@@ -33,7 +34,14 @@ function Projects(props) {
       <ul className="projects__list">
         {projects &&
           projects.map((project) => {
-            return <Project name={project.name} key={project.id} />;
+            return (
+              <Project
+                name={project.name}
+                id={project.id}
+                key={project.id}
+                handleSelectedProject={handleSelectedProject}
+              />
+            );
           })}
       </ul>
     </section>
