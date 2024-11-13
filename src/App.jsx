@@ -18,6 +18,8 @@ function App() {
     setIsProjectFormOpened(false);
   }
 
+  function handleAddTodo(name, date, id) {}
+
   function handleSelectedProject(id) {
     const selected = projects.find((project) => project.id === id);
     setSelectedProject(selected);
