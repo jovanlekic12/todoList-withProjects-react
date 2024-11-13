@@ -11,6 +11,7 @@ function Projects(props) {
     isProjectFormOpened,
     setIsProjectFormOpened,
     handleSelectedProject,
+    handleDeleteProject,
   } = props;
 
   return (
@@ -40,6 +41,7 @@ function Projects(props) {
                 id={project.id}
                 key={project.id}
                 handleSelectedProject={handleSelectedProject}
+                handleDeleteProject={handleDeleteProject}
               />
             );
           })}

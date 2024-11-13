@@ -6,7 +6,10 @@ function ProjectForm(props) {
     props;
 
   return (
-    <form onSubmit={(event) => handleSubmitProject(event, projectName)}>
+    <form
+      className="projects__list__form"
+      onSubmit={(event) => handleSubmitProject(event, projectName)}
+    >
       <Input
         placeHolder="Add new project"
         className="project__input"

@@ -9,6 +9,7 @@ function App() {
   const [projects, setProjects] = useState([]);
   const [projectName, setProjectName] = useState("");
   const [isProjectFormOpened, setIsProjectFormOpened] = useState(false);
+  const [isTodoFormOpened, setIsTodoFormOpened] = useState(false);
   const [selectedProject, setSelectedProject] = useState();
 
   function handleSubmitProject(event, name) {
@@ -20,7 +21,11 @@ function App() {
   function handleSelectedProject(id) {
     const selected = projects.find((project) => project.id === id);
     setSelectedProject(selected);
-    console.log(selectedProject);
+    setIsTodoFormOpened(false);
+  }
+
+  function handleDeleteProject(id) {
+    setProjects((prev) => prev.filter((project) => project.id !== id));
   }
 
   function handleAddProject(name) {
@@ -45,8 +50,15 @@ function App() {
           isProjectFormOpened={isProjectFormOpened}
           setIsProjectFormOpened={setIsProjectFormOpened}
           handleSelectedProject={handleSelectedProject}
+          handleDeleteProject={handleDeleteProject}
         />
-        {selectedProject && <Todos todos={selectedProject.todos} />}
+        {selectedProject && (
+          <Todos
+            todos={selectedProject.todos}
+            isTodoFormOpened={isTodoFormOpened}
+            setIsTodoFormOpened={setIsTodoFormOpened}
+          />
+        )}
       </main>
     </>
   );

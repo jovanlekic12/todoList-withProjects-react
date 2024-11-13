@@ -31,15 +31,176 @@ html {
   align-items: center;
   background-color: #d24a4a;
   padding: 2rem 3rem;
-  height: 100%;
+  min-height: 80vh;
 }
 
 .new__project__btn {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   border: 0;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0.5rem 0;
   background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.new__project__btn:hover {
+  background-color: #b84040;
+  transition: background-color 0.3s;
+}
+
+.projects__section__title,
+.todos__section__title {
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
+.projects__list__item {
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+
+.projects__list__item svg {
+  font-size: 1.5rem;
+}
+
+.projects__list__item:hover {
+  background-color: #b84040;
+
+  transition: background-color 0.3s;
 }
 
 .projects__list {
   list-style: none;
+  width: 100%;
+}
+
+.projects__list__form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.project__input {
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: 0;
+}
+
+.projects__list__form div {
+  display: flex;
+  margin-top: 0.5rem;
+  gap: 1rem;
+}
+
+.project__form__btn {
+  width: 100%;
+  font-size: 2rem;
+  border-radius: 1rem;
+  border: 0;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.new__todo__btn {
+  font-size: 2.8rem;
+  border: 0;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.new__todo__btn:hover {
+  background-color: #d24a4a;
+  transition: background-color 0.3s;
+}
+
+.todos__section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 3rem;
+  height: 100%;
+}
+
+.todo__list__form {
+  width: 90%;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo__form__container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f96060;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+.todo__form__div {
+  display: flex;
+  align-items: center;
+  font-size: 2.5rem;
+  gap: 1rem;
+}
+
+.todo__form__input {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: 0;
+}
+
+.todo__form__input::placeholder {
+  font-size: 1.8rem;
+}
+
+.todo__form__btn__div {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+
+.todo__form__add__btn,
+.todo__form__cancel__btn {
+  width: 100%;
+  font-size: 2rem;
+  padding: 0.5rem 0;
+  border-radius: 1rem;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.todo__form__add__btn {
+  border: 1px solid #30ba30;
+  background-color: rgb(68, 236, 68);
+}
+
+.todo__form__add__btn:hover {
+  background-color: #2ba22b;
+  transition: background-color 0.3s;
+}
+
+.todo__form__cancel__btn {
+  border: 1px solid #c61a1a;
+  background-color: #f96060;
+}
+
+.todo__form__cancel__btn:hover {
+  background-color: #c03d3d;
+  transition: background-color 0.3s;
 }
