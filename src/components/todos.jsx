@@ -32,7 +32,7 @@ function Todos(props) {
       ) : (
         ""
       )}
-      <ul className="projects__list">
+      <ul className="todos__list">
         {todos &&
           todos.map((todo) => {
             return <Todo name={todo.name} id={todo.id} key={todo.id} />;

@@ -204,3 +204,44 @@ html {
   background-color: #c03d3d;
   transition: background-color 0.3s;
 }
+
+.todos__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.todo__list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f96060;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+.todo__list__item__div {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.todo__list__item__div h1 {
+  font-size: 2.5rem;
+}
+
+.todo__list__item__div p {
+  font-size: 2rem;
+}
+
+.todo__list__item__div button {
+  font-size: 2rem;
+  padding: 0.2rem 1rem;
+  border-radius: 1rem;
+}
+
+.todo__list__item input {
+  width: 2.5rem;
+  height: 2.5rem;
+}
