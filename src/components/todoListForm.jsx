@@ -1,9 +1,12 @@
 import Button from "./button";
 import Input from "./input";
 
-function TodoForm(props) {
+function TodoForm({ todo, setTodo, handleSubmitTodo, selectedProjectId }) {
   return (
-    <form className="todo__list__form">
+    <form
+      className="todo__list__form"
+      onSubmit={(event) => handleSubmitTodo(event, selectedProjectId)}
+    >
       <div className="todo__form__container">
         <div className="todo__form__div">
           <label className="todo__form__label">Title:</label>
@@ -11,11 +14,16 @@ function TodoForm(props) {
             type="text"
             className="todo__form__input"
             placeHolder="My todo"
+            onChange={(event) => setTodo({ ...todo, name: event.target.value })}
           ></Input>
         </div>
         <div className="todo__form__div">
           <label className="todo__form__label">Date:</label>
-          <Input type="date" className="todo__form__input"></Input>
+          <Input
+            type="date"
+            className="todo__form__input"
+            onChange={(event) => setTodo({ ...todo, date: event.target.value })}
+          ></Input>
         </div>
       </div>
       <div className="todo__form__btn__div">

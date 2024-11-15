@@ -7,14 +7,46 @@ import Todos from "./components/todos";
 
 function App() {
   const [projects, setProjects] = useState([]);
-  const [projectName, setProjectName] = useState("");
+  const [project, setProject] = useState({
+    id: self.crypto.randomUUID(),
+    name: "",
+    todos: [],
+  });
   const [isProjectFormOpened, setIsProjectFormOpened] = useState(false);
   const [isTodoFormOpened, setIsTodoFormOpened] = useState(false);
   const [selectedProject, setSelectedProject] = useState();
+  const [todo, setTodo] = useState({
+    id: self.crypto.randomUUID(),
+    name: "",
+    date: "",
+    isChecked: false,
+  });
 
-  function handleSubmitProject(event, name) {
+  function handleSubmitTodo(event, id) {
     event.preventDefault();
-    handleAddProject(name);
+    handleAddTodo(id);
+  }
+
+  function handleAddTodo(id) {
+    // const newTodos = selectedProject.todos.map((item) => {
+    //   return { ...item, todo };
+    // });
+    // const newProject = projects.find((project) => project.id === id);
+    // newProject.todos = newTodos;
+    // setProjects((prev) => [...prev, newProject]);
+    const newProjects = projects.map((project) => {
+      return project.id === id
+        ? { ...project, todos: [...project.todos, todo] }
+        : project;
+    });
+    setProjects(newProjects);
+    setSelectedProject(projects.find((project) => project.id === id));
+    console.log(projects);
+  }
+
+  function handleSubmitProject(event) {
+    event.preventDefault();
+    handleAddProject();
     setIsProjectFormOpened(false);
   }
 
@@ -28,13 +60,9 @@ function App() {
     setProjects((prev) => prev.filter((project) => project.id !== id));
   }
 
-  function handleAddProject(name) {
-    const newItem = {
-      id: self.crypto.randomUUID(),
-      name: name,
-      todos: [],
-    };
-    setProjects((prev) => [...prev, newItem]);
+  function handleAddProject() {
+    setProject({ ...project, id: self.crypto.randomUUID() });
+    setProjects((prev) => [...prev, project]);
   }
 
   return (
@@ -44,8 +72,8 @@ function App() {
         <Projects
           projects={projects}
           handleSubmitProject={handleSubmitProject}
-          setProjectName={setProjectName}
-          projectName={projectName}
+          setProject={setProject}
+          project={project}
           isProjectFormOpened={isProjectFormOpened}
           setIsProjectFormOpened={setIsProjectFormOpened}
           handleSelectedProject={handleSelectedProject}
@@ -56,6 +84,10 @@ function App() {
             todos={selectedProject.todos}
             isTodoFormOpened={isTodoFormOpened}
             setIsTodoFormOpened={setIsTodoFormOpened}
+            setTodo={setTodo}
+            todo={todo}
+            handleSubmitTodo={handleSubmitTodo}
+            selectedProjectId={selectedProject.id}
           />
         )}
       </main>

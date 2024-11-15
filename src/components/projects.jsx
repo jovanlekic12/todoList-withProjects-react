@@ -6,8 +6,8 @@ function Projects(props) {
   const {
     projects,
     handleSubmitProject,
-    setProjectName,
-    projectName,
+    setProject,
+    project,
     isProjectFormOpened,
     setIsProjectFormOpened,
     handleSelectedProject,
@@ -26,8 +26,8 @@ function Projects(props) {
       {isProjectFormOpened ? (
         <ProjectForm
           handleSubmitProject={handleSubmitProject}
-          setProjectName={setProjectName}
-          projectName={projectName}
+          setProject={setProject}
+          project={project}
         />
       ) : (
         ""
