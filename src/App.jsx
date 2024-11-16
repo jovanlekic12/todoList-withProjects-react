@@ -28,12 +28,6 @@ function App() {
   }
 
   function handleAddTodo(id) {
-    // const newTodos = selectedProject.todos.map((item) => {
-    //   return { ...item, todo };
-    // });
-    // const newProject = projects.find((project) => project.id === id);
-    // newProject.todos = newTodos;
-    // setProjects((prev) => [...prev, newProject]);
     const newProjects = projects.map((project) => {
       return project.id === id
         ? { ...project, todos: [...project.todos, todo] }
