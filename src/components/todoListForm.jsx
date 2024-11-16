@@ -14,7 +14,13 @@ function TodoForm({ todo, setTodo, handleSubmitTodo, selectedProjectId }) {
             type="text"
             className="todo__form__input"
             placeHolder="My todo"
-            onChange={(event) => setTodo({ ...todo, name: event.target.value })}
+            onChange={(event) =>
+              setTodo({
+                ...todo,
+                name: event.target.value,
+                id: self.crypto.randomUUID(),
+              })
+            }
           ></Input>
         </div>
         <div className="todo__form__div">

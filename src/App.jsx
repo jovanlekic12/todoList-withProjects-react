@@ -25,6 +25,8 @@ function App() {
   function handleSubmitTodo(event, id) {
     event.preventDefault();
     handleAddTodo(id);
+    setSelectedProject(projects.find((project) => project.id === id));
+    setIsTodoFormOpened(false);
   }
 
   function handleAddTodo(id) {
@@ -34,7 +36,6 @@ function App() {
         : project;
     });
     setProjects(newProjects);
-    setSelectedProject(projects.find((project) => project.id === id));
     console.log(projects);
   }
 
