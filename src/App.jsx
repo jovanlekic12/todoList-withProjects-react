@@ -6,6 +6,7 @@ import Projects from "./components/projects";
 import Todos from "./components/todos";
 
 function App() {
+  const [activeIndex, setActiveIndex] = useState(null);
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState({
     id: self.crypto.randomUUID(),
@@ -13,7 +14,7 @@ function App() {
     todos: [],
   });
   const [isProjectFormOpened, setIsProjectFormOpened] = useState(false);
-  const [isTodoFormOpened, setIsTodoFormOpened] = useState(false);
+  const [isTodoFormOpened, setIsTodoFormOpened] = useState(true);
   const [selectedProject, setSelectedProject] = useState();
   const [todo, setTodo] = useState({
     id: self.crypto.randomUUID(),
@@ -26,8 +27,18 @@ function App() {
     event.preventDefault();
     handleAddTodo(id);
     setIsTodoFormOpened(false);
-    const project = projects.find((project) => project.id === id);
-    setSelectedProject(project);
+  }
+
+  function handleDeleteTodo(projectId, todoId) {
+    const newProjects = projects.map((project) => {
+      return project.id === projectId
+        ? {
+            ...project,
+            todos: project.todos.filter((todo) => todo.id !== todoId),
+          }
+        : project;
+    });
+    setProjects(newProjects);
   }
 
   function handleAddTodo(id) {
@@ -36,20 +47,14 @@ function App() {
         ? { ...project, todos: [...project.todos, todo] }
         : project;
     });
+
     setProjects(newProjects);
-    console.log(projects);
   }
 
   function handleSubmitProject(event) {
     event.preventDefault();
     handleAddProject();
     setIsProjectFormOpened(false);
-  }
-
-  function handleSelectedProject(id) {
-    const selected = projects.find((project) => project.id === id);
-    setSelectedProject(selected);
-    setIsTodoFormOpened(false);
   }
 
   function handleDeleteProject(id) {
@@ -61,29 +66,35 @@ function App() {
     setProjects((prev) => [...prev, project]);
   }
 
+  function setActiveProject(index) {
+    setIsTodoFormOpened(true);
+    setActiveIndex(index);
+  }
+
   return (
     <>
       <Header></Header>
       <main className="main__container">
         <Projects
+          setActiveProject={setActiveProject}
           projects={projects}
           handleSubmitProject={handleSubmitProject}
           setProject={setProject}
           project={project}
           isProjectFormOpened={isProjectFormOpened}
           setIsProjectFormOpened={setIsProjectFormOpened}
-          handleSelectedProject={handleSelectedProject}
           handleDeleteProject={handleDeleteProject}
         />
-        {selectedProject && (
+        {activeIndex !== null && (
           <Todos
-            todos={selectedProject.todos}
+            todos={projects[activeIndex].todos}
             isTodoFormOpened={isTodoFormOpened}
             setIsTodoFormOpened={setIsTodoFormOpened}
             setTodo={setTodo}
             todo={todo}
+            selectedProjectId={projects[activeIndex].id}
             handleSubmitTodo={handleSubmitTodo}
-            selectedProjectId={selectedProject.id}
+            handleDeleteTodo={handleDeleteTodo}
           />
         )}
       </main>

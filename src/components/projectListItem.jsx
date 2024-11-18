@@ -1,13 +1,19 @@
 import { RxCross2 } from "react-icons/rx";
 
 function Project(props) {
-  const { name, id, handleSelectedProject, handleDeleteProject } = props;
+  const {
+    name,
+    id,
+    handleSelectedProject,
+    handleDeleteProject,
+    setActiveProject,
+    index,
+  } = props;
 
-  console.log(props);
   return (
     <li
       className="projects__list__item"
-      onClick={() => handleSelectedProject(id)}
+      onClick={() => setActiveProject(index)}
     >
       <h1>{name}</h1>
       <RxCross2 onClick={() => handleDeleteProject(id)} />

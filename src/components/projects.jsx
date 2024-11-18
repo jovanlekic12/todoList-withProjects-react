@@ -4,6 +4,7 @@ import ProjectForm from "./projectsListForm";
 import { useState } from "react";
 function Projects(props) {
   const {
+    setActiveProject,
     projects,
     handleSubmitProject,
     setProject,
@@ -34,9 +35,11 @@ function Projects(props) {
       )}
       <ul className="projects__list">
         {projects &&
-          projects.map((project) => {
+          projects.map((project, index) => {
             return (
               <Project
+                index={index}
+                setActiveProject={setActiveProject}
                 name={project.name}
                 id={project.id}
                 key={project.id}

@@ -12,6 +12,7 @@ function Todos(props) {
     setTodo,
     handleSubmitTodo,
     selectedProjectId,
+    handleDeleteTodo,
   } = props;
   return (
     <section className="todos__section">
@@ -35,7 +36,16 @@ function Todos(props) {
       <ul className="todos__list">
         {todos &&
           todos.map((todo) => {
-            return <Todo name={todo.name} id={todo.id} key={todo.id} />;
+            return (
+              <Todo
+                name={todo.name}
+                date={todo.date}
+                id={todo.id}
+                key={todo.id}
+                handleDeleteTodo={handleDeleteTodo}
+                selectedProjectId={selectedProjectId}
+              />
+            );
           })}
       </ul>
     </section>

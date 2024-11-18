@@ -2,8 +2,8 @@ import Button from "./button";
 import Input from "./input";
 
 function Todo(props) {
-  const { name, id, date, isChecked } = props;
-
+  const { name, id, date, isChecked, handleDeleteTodo, selectedProjectId } =
+    props;
   return (
     <li className="todo__list__item">
       <div className="todo__list__item__div">
@@ -16,7 +16,9 @@ function Todo(props) {
       </div>
       <div className="todo__list__item__div">
         <Button>edit</Button>
-        <Button>delete</Button>
+        <Button onClick={() => handleDeleteTodo(selectedProjectId, id)}>
+          delete
+        </Button>
       </div>
       <Input type="checkbox" />
     </li>

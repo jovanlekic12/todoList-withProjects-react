@@ -137,7 +137,7 @@ html {
 
 .todo__list__form {
   width: 90%;
-  margin-top: 2rem;
+  margin: 2rem 0;
   display: flex;
   flex-direction: column;
 }
@@ -239,6 +239,8 @@ html {
   font-size: 2rem;
   padding: 0.2rem 1rem;
   border-radius: 1rem;
+  cursor: pointer;
+  border: 1px solid #999;
 }
 
 .todo__list__item input {
