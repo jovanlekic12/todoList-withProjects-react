@@ -221,6 +221,13 @@ html {
   border-radius: 1rem;
 }
 
+.todo__list__item__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .todo__list__item__div {
   display: flex;
   align-items: center;
@@ -243,7 +250,14 @@ html {
   border: 1px solid #999;
 }
 
-.todo__list__item input {
+.todo__edit__form__input {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  border: 0;
+}
+
+.checkbox {
   width: 2.5rem;
   height: 2.5rem;
 }

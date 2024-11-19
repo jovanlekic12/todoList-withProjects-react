@@ -7,6 +7,7 @@ function Input(props) {
       placeholder={placeHolder}
       onChange={onChange}
       checked={value}
+      value={value}
     />
   );
 }

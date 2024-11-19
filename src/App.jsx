@@ -20,6 +20,7 @@ function App() {
     name: "",
     date: "",
     isChecked: false,
+    isEditing: false,
   });
 
   function handleSubmitTodo(event, id) {
@@ -58,6 +59,22 @@ function App() {
     });
     setProjects(newProjects);
     console.log(projects);
+  }
+
+  function handleEditTodo(projectId, todoId) {
+    const newProjects = projects.map((project) => {
+      return project.id === projectId
+        ? {
+            ...project,
+            todos: project.todos.map((todo) => {
+              return todo.id === todoId
+                ? { ...todo, isEditing: !todo.isEditing }
+                : { ...todo, isEditing: false };
+            }),
+          }
+        : project;
+    });
+    setProjects(newProjects);
   }
 
   function handleAddTodo(id) {
@@ -115,6 +132,7 @@ function App() {
             handleSubmitTodo={handleSubmitTodo}
             handleDeleteTodo={handleDeleteTodo}
             handleCheckingTodo={handleCheckingTodo}
+            handleEditTodo={handleEditTodo}
           />
         )}
       </main>

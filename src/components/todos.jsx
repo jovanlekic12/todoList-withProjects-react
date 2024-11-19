@@ -14,6 +14,7 @@ function Todos(props) {
     selectedProjectId,
     handleDeleteTodo,
     handleCheckingTodo,
+    handleEditTodo,
   } = props;
   return (
     <section className="todos__section">
@@ -43,9 +44,12 @@ function Todos(props) {
                 date={todo.date}
                 id={todo.id}
                 key={todo.id}
+                isChecked={todo.isChecked}
+                isEditing={todo.isEditing}
                 handleDeleteTodo={handleDeleteTodo}
                 selectedProjectId={selectedProjectId}
                 handleCheckingTodo={handleCheckingTodo}
+                handleEditTodo={handleEditTodo}
               />
             );
           })}
