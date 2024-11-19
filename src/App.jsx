@@ -15,7 +15,6 @@ function App() {
   });
   const [isProjectFormOpened, setIsProjectFormOpened] = useState(false);
   const [isTodoFormOpened, setIsTodoFormOpened] = useState(true);
-  const [selectedProject, setSelectedProject] = useState();
   const [todo, setTodo] = useState({
     id: self.crypto.randomUUID(),
     name: "",
@@ -39,6 +38,26 @@ function App() {
         : project;
     });
     setProjects(newProjects);
+  }
+
+  function handleCheckingTodo(event, projectId, todoId) {
+    const newProjects = projects.map((project) => {
+      return project.id === projectId
+        ? {
+            ...project,
+            todos: project.todos.map((todo) => {
+              return todo.id === todoId
+                ? {
+                    ...todo,
+                    isChecked: event.target.checked,
+                  }
+                : todo;
+            }),
+          }
+        : project;
+    });
+    setProjects(newProjects);
+    console.log(projects);
   }
 
   function handleAddTodo(id) {
@@ -67,7 +86,7 @@ function App() {
   }
 
   function setActiveProject(index) {
-    setIsTodoFormOpened(true);
+    setIsTodoFormOpened(false);
     setActiveIndex(index);
   }
 
@@ -95,6 +114,7 @@ function App() {
             selectedProjectId={projects[activeIndex].id}
             handleSubmitTodo={handleSubmitTodo}
             handleDeleteTodo={handleDeleteTodo}
+            handleCheckingTodo={handleCheckingTodo}
           />
         )}
       </main>

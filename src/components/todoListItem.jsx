@@ -2,8 +2,15 @@ import Button from "./button";
 import Input from "./input";
 
 function Todo(props) {
-  const { name, id, date, isChecked, handleDeleteTodo, selectedProjectId } =
-    props;
+  const {
+    name,
+    id,
+    date,
+    isChecked,
+    handleDeleteTodo,
+    selectedProjectId,
+    handleCheckingTodo,
+  } = props;
   return (
     <li className="todo__list__item">
       <div className="todo__list__item__div">
@@ -20,7 +27,11 @@ function Todo(props) {
           delete
         </Button>
       </div>
-      <Input type="checkbox" />
+      <Input
+        type="checkbox"
+        onChange={(event) => handleCheckingTodo(event, selectedProjectId, id)}
+        value={isChecked}
+      />
     </li>
   );
 }
