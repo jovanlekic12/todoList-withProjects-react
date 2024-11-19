@@ -43,7 +43,6 @@ function Projects(props) {
                 name={project.name}
                 id={project.id}
                 key={project.id}
-                handleSelectedProject={handleSelectedProject}
                 handleDeleteProject={handleDeleteProject}
               />
             );

@@ -93,7 +93,10 @@ function App() {
     setIsProjectFormOpened(false);
   }
 
-  function handleDeleteProject(id) {
+  function handleDeleteProject(id, index) {
+    if (index === activeIndex) {
+      setActiveIndex(null);
+    }
     setProjects((prev) => prev.filter((project) => project.id !== id));
   }
 
