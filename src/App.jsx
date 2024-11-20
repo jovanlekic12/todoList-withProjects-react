@@ -6,6 +6,7 @@ import Projects from "./components/projects";
 import Todos from "./components/todos";
 
 function App() {
+  const [showTodos, setShowTodos] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
   const [projects, setProjects] = useState([]);
   const [project, setProject] = useState({
@@ -96,6 +97,7 @@ function App() {
   function handleDeleteProject(id, index) {
     if (index === activeIndex) {
       setActiveIndex(null);
+      setShowTodos(false);
     }
     setProjects((prev) => prev.filter((project) => project.id !== id));
   }
@@ -108,6 +110,7 @@ function App() {
   function setActiveProject(index) {
     setIsTodoFormOpened(false);
     setActiveIndex(index);
+    if (!showTodos) setShowTodos(true);
   }
 
   return (
@@ -124,7 +127,7 @@ function App() {
           setIsProjectFormOpened={setIsProjectFormOpened}
           handleDeleteProject={handleDeleteProject}
         />
-        {activeIndex !== null && (
+        {showTodos && (
           <Todos
             todos={projects[activeIndex].todos}
             isTodoFormOpened={isTodoFormOpened}
