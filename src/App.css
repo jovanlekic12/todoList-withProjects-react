@@ -261,3 +261,7 @@ html {
   width: 2.5rem;
   height: 2.5rem;
 }
+
+.active {
+  background-color: #b84040;
+}

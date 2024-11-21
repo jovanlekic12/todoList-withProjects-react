@@ -88,6 +88,11 @@ function App() {
     setProjects(newProjects);
   }
 
+  function handleCancelProjectForm(event) {
+    event.preventDefault();
+    setIsProjectFormOpened(false);
+  }
+
   function handleSubmitProject(event) {
     event.preventDefault();
     handleAddProject();
@@ -126,6 +131,7 @@ function App() {
           isProjectFormOpened={isProjectFormOpened}
           setIsProjectFormOpened={setIsProjectFormOpened}
           handleDeleteProject={handleDeleteProject}
+          handleCancelProjectForm={handleCancelProjectForm}
         />
         {showTodos && (
           <Todos

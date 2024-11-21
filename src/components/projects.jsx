@@ -13,6 +13,7 @@ function Projects(props) {
     setIsProjectFormOpened,
     handleSelectedProject,
     handleDeleteProject,
+    handleCancelProjectForm,
   } = props;
 
   return (
@@ -29,6 +30,7 @@ function Projects(props) {
           handleSubmitProject={handleSubmitProject}
           setProject={setProject}
           project={project}
+          handleCancelProjectForm={handleCancelProjectForm}
         />
       ) : (
         ""

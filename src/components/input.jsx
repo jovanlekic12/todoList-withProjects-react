@@ -8,6 +8,7 @@ function Input(props) {
       onChange={onChange}
       checked={value}
       value={value}
+      required
     />
   );
 }

@@ -1,5 +1,5 @@
 import { RxCross2 } from "react-icons/rx";
-
+import { useState } from "react";
 function Project(props) {
   const { name, id, handleDeleteProject, setActiveProject, index } = props;
   const [highlightedProject, setHighlightedProject] = useState(null);
