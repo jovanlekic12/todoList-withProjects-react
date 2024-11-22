@@ -24,6 +24,12 @@ function App() {
     isEditing: false,
   });
 
+  const activeProject = projects[activeIndex] ?? {
+    id: self.crypto.randomUUID(),
+    name: "",
+    todos: [],
+  };
+
   function handleSubmitTodo(event, id) {
     event.preventDefault();
     handleAddTodo(id);
@@ -138,12 +144,12 @@ function App() {
         />
         {showTodos && projects && (
           <Todos
-            todos={projects[activeIndex].todos}
+            todos={activeProject.todos}
             isTodoFormOpened={isTodoFormOpened}
             setIsTodoFormOpened={setIsTodoFormOpened}
             setTodo={setTodo}
             todo={todo}
-            selectedProjectId={projects[activeIndex].id}
+            selectedProjectId={activeProject.id}
             handleSubmitTodo={handleSubmitTodo}
             handleDeleteTodo={handleDeleteTodo}
             handleCheckingTodo={handleCheckingTodo}

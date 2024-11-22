@@ -31,6 +31,7 @@ function Todos(props) {
           setTodo={setTodo}
           handleSubmitTodo={handleSubmitTodo}
           selectedProjectId={selectedProjectId}
+          setIsTodoFormOpened={setIsTodoFormOpened}
         />
       ) : (
         ""

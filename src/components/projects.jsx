@@ -29,6 +29,7 @@ function Projects(props) {
       <h1 className="projects__section__title">Projects:</h1>
       {isProjectFormOpened ? (
         <ProjectForm
+          setIsProjectFormOpened={setIsProjectFormOpened}
           handleSubmitProject={handleSubmitProject}
           setProject={setProject}
           project={project}

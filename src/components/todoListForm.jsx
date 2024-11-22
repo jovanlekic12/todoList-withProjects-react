@@ -1,7 +1,13 @@
 import Button from "./button";
 import Input from "./input";
 
-function TodoForm({ todo, setTodo, handleSubmitTodo, selectedProjectId }) {
+function TodoForm({
+  todo,
+  setTodo,
+  handleSubmitTodo,
+  selectedProjectId,
+  setIsTodoFormOpened,
+}) {
   return (
     <form
       className="todo__list__form"
@@ -33,8 +39,16 @@ function TodoForm({ todo, setTodo, handleSubmitTodo, selectedProjectId }) {
         </div>
       </div>
       <div className="todo__form__btn__div">
-        <Button className="todo__form__add__btn">Add</Button>
-        <Button className="todo__form__cancel__btn">Cancel</Button>
+        <Button className="todo__form__add__btn" type="submit">
+          Add
+        </Button>
+        <Button
+          className="todo__form__cancel__btn"
+          type="reset"
+          onClick={() => setIsTodoFormOpened(false)}
+        >
+          Cancel
+        </Button>
       </div>
     </form>
   );

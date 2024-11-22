@@ -2,7 +2,7 @@ import Button from "./button";
 import Input from "./input";
 
 function ProjectForm(props) {
-  const { handleSubmitProject, setProject, project, handleCancelProject } =
+  const { handleSubmitProject, setProject, project, setIsProjectFormOpened } =
     props;
 
   return (
@@ -20,10 +20,13 @@ function ProjectForm(props) {
         required
       />
       <div>
-        <Button className="project__form__btn">Add</Button>
+        <Button className="project__form__btn" type="submit">
+          Add
+        </Button>
         <Button
           className="project__form__btn"
-          onClick={(event) => handleCancelProject(event)}
+          type="reset"
+          onClick={() => setIsProjectFormOpened(false)}
         >
           Cancel
         </Button>
