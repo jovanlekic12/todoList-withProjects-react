@@ -16,6 +16,8 @@ function Projects(props) {
     handleCancelProjectForm,
   } = props;
 
+  const [highlightedProject, setHighlightedProject] = useState(null);
+
   return (
     <section className="projects__section">
       <Button
@@ -40,6 +42,8 @@ function Projects(props) {
           projects.map((project, index) => {
             return (
               <Project
+                highlightedProject={highlightedProject}
+                setHighlightedProject={setHighlightedProject}
                 index={index}
                 setActiveProject={setActiveProject}
                 name={project.name}

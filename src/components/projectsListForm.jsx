@@ -20,12 +20,7 @@ function ProjectForm(props) {
         required
       />
       <div>
-        <Button
-          className="project__form__btn"
-          onClick={(event) => handleSubmitProject(event)}
-        >
-          Add
-        </Button>
+        <Button className="project__form__btn">Add</Button>
         <Button
           className="project__form__btn"
           onClick={(event) => handleCancelProject(event)}

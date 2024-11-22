@@ -105,6 +105,9 @@ function App() {
       setShowTodos(false);
     }
     setProjects((prev) => prev.filter((project) => project.id !== id));
+    if (projects.length === 0) {
+      setShowTodos(false);
+    }
   }
 
   function handleAddProject() {
@@ -133,7 +136,7 @@ function App() {
           handleDeleteProject={handleDeleteProject}
           handleCancelProjectForm={handleCancelProjectForm}
         />
-        {showTodos && (
+        {showTodos && projects && (
           <Todos
             todos={projects[activeIndex].todos}
             isTodoFormOpened={isTodoFormOpened}
